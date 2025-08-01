@@ -1,37 +1,40 @@
+
 import { useState, useEffect } from 'react'
 import { useDispatch } from "react-redux";
 import './App.css'
 import Menu from './components/Menu'
 import Contenido from './components/Contenido'
 import './estilos/estilos.css'
-import { cargaInicialTareasSlice } from './slices/features/tareasSlices';
-import { obtenerTareasAPI } from './services/serviciosTiny';
-
+import { setObjetivos, setEvaluaciones, setLoading, setError } from './slices/features/tareasSlices';
+import { obtenerObjetivos, obtenerEvaluaciones } from './services/serviciosTiny';
 
 function App() {
-
   const dispatch = useDispatch();
 
-
-
-  const [tareas, setTareas] = useState([]);
   useEffect(() => {
-    recuperarTareas()
-
+    cargarDatosIniciales()
   }, [])
 
-  const recuperarTareas = async () => {
+  const cargarDatosIniciales = async () => {
     try {
-      const tareasIniciales = await obtenerTareasAPI();
-      console.log('entro en useEffect', tareasIniciales);
-      dispatch(cargaInicialTareasSlice(tareasIniciales));
-
-    } catch (e) {
-      alert(e)
+      dispatch(setLoading(true));
+      
+      // Cargar objetivos y evaluaciones en paralelo
+      const [objetivos, evaluaciones] = await Promise.all([
+        obtenerObjetivos(),
+        obtenerEvaluaciones()
+      ]);
+      
+      dispatch(setObjetivos(objetivos));
+      dispatch(setEvaluaciones(evaluaciones));
+      
+    } catch (error) {
+      console.error('Error cargando datos:', error);
+      dispatch(setError(error.message));
+    } finally {
+      dispatch(setLoading(false));
     }
   }
-
-
 
   return (
     <div>

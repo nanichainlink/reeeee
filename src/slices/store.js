@@ -1,7 +1,9 @@
+
 import { configureStore } from '@reduxjs/toolkit'
-import tareasSlice from "./features/tareasSlices"
+import goalifySlice from "./features/tareasSlices"
+
 export const store = configureStore({
     reducer: {
-        tareasSlice
+        goalify: goalifySlice
     },
 })

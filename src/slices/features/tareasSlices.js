@@ -1,61 +1,66 @@
+
 import { createSlice } from "@reduxjs/toolkit";
-const initialState = []
-const tareasSlice = createSlice({
-    name: "tareas",
+
+const initialState = {
+    objetivos: [],
+    evaluaciones: [],
+    usuario: null,
+    token: null,
+    filtroFecha: 'todas', // 'semana', 'mes', 'todas'
+    loading: false,
+    error: null
+}
+
+const goalifySlice = createSlice({
+    name: 'goalify',
     initialState,
     reducers: {
-
-        cargaInicialTareasSlice: (state, action) => {
-            const tareasNuevas = action.payload;
-            console.log('tareasNuevas', tareasNuevas)
-            //sin return solo mutando
-            return tareasNuevas;
+        setUsuario: (state, action) => {
+            state.usuario = action.payload.usuario;
+            state.token = action.payload.token;
         },
-
-        agregarTareaSlice: (state, action) => {
-            const tareaNueva = action.payload;
-            //sin return solo mutando
-            state.push(tareaNueva)
+        logout: (state) => {
+            state.usuario = null;
+            state.token = null;
+            state.evaluaciones = [];
+            state.objetivos = [];
         },
-
-        borrarTareaSlice: (state, action) => {
-            const tareaId = action.payload;
-            const estadoActual = state.filter(t => t.id != tareaId);
-            console.log('estadoActual', estadoActual)
-            return estadoActual;
+        setObjetivos: (state, action) => {
+            state.objetivos = action.payload;
         },
-
-
-
-        cambiarCheckSlice: (state, action) => {
-            const { idTarea, completed } = action.payload;
-
-            const tareaModificar = state.find(t => t.id == idTarea);
-            tareaModificar.completed = completed;
-            return state;
-
-
-            // const estadoActual = state.filter(t => t.id != tareaId);
-            // console.log('estadoActual', estadoActual)
-            // return estadoActual;
+        setEvaluaciones: (state, action) => {
+            state.evaluaciones = action.payload;
         },
-
-
-    },
+        agregarEvaluacion: (state, action) => {
+            state.evaluaciones.push(action.payload);
+        },
+        eliminarEvaluacion: (state, action) => {
+            state.evaluaciones = state.evaluaciones.filter(
+                evaluacion => evaluacion.id !== action.payload
+            );
+        },
+        setFiltroFecha: (state, action) => {
+            state.filtroFecha = action.payload;
+        },
+        setLoading: (state, action) => {
+            state.loading = action.payload;
+        },
+        setError: (state, action) => {
+            state.error = action.payload;
+        }
+    }
 });
-export const { agregarTareaSlice, cargaInicialTareasSlice, borrarTareaSlice, cambiarCheckSlice } = tareasSlice.actions;
-export default tareasSlice.reducer;
 
+export const {
+    setUsuario,
+    logout,
+    setObjetivos,
+    setEvaluaciones,
+    agregarEvaluacion,
+    eliminarEvaluacion,
+    setFiltroFecha,
+    setLoading,
+    setError
+} = goalifySlice.actions;
 
-
-/**
- * 
- * saldarDeuda: state => initialState, //devuelve estado inicial
-        comprarBebidasApu: state => {
-            const deudaBebidas = state.bebidas + 10;
-            return {
-                ...state,
-                cervezas: deudaBebidas,
-            };
-        },
- */
+export default goalifySlice.reducer;
