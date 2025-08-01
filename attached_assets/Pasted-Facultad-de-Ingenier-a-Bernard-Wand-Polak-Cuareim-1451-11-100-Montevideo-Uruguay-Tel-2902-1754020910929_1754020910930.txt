@@ -1,0 +1,227 @@
+Facultad de Ingeniería 
+Bernard Wand-Polak 
+Cuareim 1451 
+11.100  Montevideo, Uruguay 
+Tel. 2902 15 05 Fax 2908 13 70 
+www.ort.edu.uy 
+ 
+ 
+ 
+ 
+EVALUACIÓN Obligatorio GRUPO     TODOS FECHA 07/2025 
+MATERIA Taller de Desarrollo Frontend 
+CARRERA Analista en Tecnologías de Información / Analista Programador 
+CONDICIONES - Puntos:  Máximo: 100 - Mínimo: 70 - Fecha máxima de entrega:12/08/2025 hasta las 21:00 horas en gestion.ort.edu.uy. 
+ 
+LA ENTREGA SE REALIZA EN FORMA ONLINE EN ARCHIVO NO MAYOR A 40MB EN FORMATO ZIP O RAR. 
+ 
+Uso de material de apoyo y/o consulta  
+   
+Inteligencia Artificial Generativa  
+● Seguir las pautas de los docentes: Se deben seguir las instrucciones específicas de los docentes sobre cómo utilizar la 
+IA en cada curso.  
+● Citar correctamente las fuentes y usos de IA: Siempre que se utilice una herramienta de IA para generar contenido, se 
+debe citar adecuadamente la fuente y la forma en que se utilizó.  
+● Verificar el contenido generado por la IA: No todo el contenido generado por la IA es correcto o preciso. Es esencial que 
+los estudiantes verifiquen la información antes de usarla.  
+● Ser responsables con el uso de la IA: Conocer los riesgos y desafíos, como la creación de “alucinaciones”, los peligros 
+para la privacidad, las cuestiones de propiedad intelectual, los sesgos inherentes y la producción de contenido falso  
+● En caso de existir dudas sobre la autoría, plagio o uso no atribuido de IAG, el docente tendrá la opción de convocar al 
+equipo de obligatorio a una defensa específica e individual sobre el tema  
+   
+IMPORTANTE:  
+1) Inscribirse   
+2) Formar grupos de hasta 2 personas del mismo dictado  
+ 3) Subir el trabajo a Gestión antes de la hora indicada (ver hoja al final del documento: “RECORDATORIO”)  
+Aquellos de ustedes que presenten alguna dificultad con su inscripción o tengan inconvenientes técnicos, por favor contactarse con el 
+Coordinador o Coordinación adjunta antes de las 20:00hs. del día de la entrega, a través de los mails alamon@ort.edu.uy y 
+rodríguez_mb@ort.edu.uy o telefónicamente al 29021505 - int 1156 u 1138  
+ 
+ 
+Prototipo para aplicación de seguimiento y 
+evaluación de objetivos (Goalify) 
+ 
+Objetivo 
+ 
+El objetivo de este obligatorio es desarrollar una pequeña parte de una aplicación 
+web que permita aplicar los conceptos de desarrollo frontend vistos en el taller.  
+ 
+Para ese objetivo se creará una aplicación que permita a un usuario almacenar 
+auto evaluaciones que haga de sus objetivos diarios. 
+ 
+Facultad de Ingeniería 
+Bernard Wand-Polak 
+Cuareim 1451 
+11.100  Montevideo, Uruguay 
+Tel. 2902 15 05 Fax 2908 13 70 
+www.ort.edu.uy 
+La consulta y persistencia de los datos se realizará mediante una API REST 
+proporcionada por el equipo docente. La API REST no realizará ningún tipo de 
+control de errores, es responsabilidad de los desarrolladores hacer llegar 
+correctamente los datos al servidor. 
+El acceso a la API REST será publicado oportunamente en aulas. 
+Aplicación 
+La aplicación deberá permitir al usuario registrar las evaluaciones que ha hecho o 
+va haciendo en el día o días anteriores. 
+Con cada ingreso la aplicación deberá actualizar los datos estadísticos y métricas 
+en tiempo real, en la misma pantalla y sin la necesidad de refrescar el navegador.  
+Se deberá prestar atención a los servicios disponibles en la API para poder 
+utilizar los necesarios. 
+Requerimientos funcionales 
+La aplicación deberá permitir realizar las siguientes funcionalidades: 
+1. 
+Registro en la aplicación: se ingresará usuario, contraseña y país de 
+residencia.  La API devolverá el éxito o el error en caso que corresponda. 
+En caso de éxito se devolverá la información del usuario y un token e id 
+que se deberán agregar en todos los llamados a la API que se hagan. Se 
+valorará el auto-login del usuario una vez hecho el registro y que se 
+mantenga la sesión viva al cerrar y volver a abrir el navegador mediante el 
+uso de localStorage. En caso de error se deberá mostrar en la propia 
+interfaz el mensaje. 
+Facultad de Ingeniería 
+Bernard Wand-Polak 
+Cuareim 1451 
+11.100  Montevideo, Uruguay 
+Tel. 2902 15 05 Fax 2908 13 70 
+www.ort.edu.uy 
+2. 
+3. 
+4. 
+Login en la aplicación: En caso de éxito se devolverá la información del 
+usuario y un token que cambia con cada login. Ese token, junto al id se 
+deberán agregar en todos los llamados a la API que se hagan. Mientras 
+uno de los campos (usuario o contraseña) permanezca vacío, el botón de 
+ingresar deberá estar deshabilitado. En caso de error se deberá mostrar en 
+la propia interfaz el mensaje. 
+Logout: se deberá poder cerrar la sesión para que otro usuario se loguee. 
+Dashboard 
+4.1. 
+4.2. 
+Agregar una evaluación: la aplicación deberá permitir al usuario 
+registrar una nueva evaluación de un objetivo. Cada evaluación 
+deberá tener referencia del usuario que la agregó. 
+El usuario deberá agregar: 
+● Objetivo. El objetivo que se está evaluando. Se almacena el id 
+● Calificación. Una valoración de -5 a 5 (número entero), donde -5 es muy malo y 5 es muy bueno. 
+● Fecha. Se deberá seleccionar la fecha de la evaluación de un 
+campo de tipo fecha. La fecha podrá ser hoy o algún día 
+anterior, no posterior. 
+Registros:  
+4.2.1. 
+4.2.2. 
+Listado: se listarán todas las evaluaciones registradas por el 
+usuario. A cada objetivo corresponde un ícono que se puede 
+encontrar en la propiedad emoji.  
+Eliminar: Al costado de cada evaluación se deberá disponer 
+un botón para eliminar los datos de esa evaluación. 
+Facultad de Ingeniería 
+Bernard Wand-Polak 
+Cuareim 1451 
+11.100  Montevideo, Uruguay 
+Tel. 2902 15 05 Fax 2908 13 70 
+www.ort.edu.uy 
+4.2.3. 
+4.3. 
+Filtro por fecha: el listado de evaluaciones debe contar con 
+un filtro que permita ver las evaluaciones de la última 
+semana, del último mes o todo el histórico de evaluaciones. 
+Informe de cumplimiento de objetivos: 
+4.3.1. 
+4.3.2. 
+4.3.3. 
+4.4. 
+Puntaje global: en un componente aparte, se deberá mostrar 
+el puntaje actual del usuario que se obtendrá del promedio de 
+todas las calificaciones de todas las evaluaciones.  
+Puntaje diario: en otro componente mostrar el puntaje diario 
+del usuario que se obtendrá del promedio de todas las 
+calificaciones de todas las evaluaciones del día de hoy. 
+Situación personal: Mostrar en un componente independiente 
+un emoji de carita triste, normal o feliz dependiendo de si el 
+usuario tiene un puntaje global, negativo, neutro (cero) o 
+positivo. 
+Análisis:   
+4.4.1. 
+4.4.2. 
+Se valorarán: 
+Gráfico de evaluaciones por objetivo: se deberán graficar los 
+objetivos de los que hay evaluaciones mostrando la cantidad 
+de evaluaciones de ese objetivo, no se muestran en la gráfica 
+los objetivos que no hayan tenido evaluaciones. 
+Gráfico de promedio por objetivo: se deberán graficar los 
+objetivos (todos),mostrando el promedio de evaluaciones de 
+ese objetivo, tener en cuenta que en esta gráfica podrá haber 
+valores positivos y negativos conviviendo. - El diseño visual de la aplicación. - Las validaciones pertinentes de todos los datos que ingresa el usuario. 
+Facultad de Ingeniería 
+Bernard Wand-Polak 
+Cuareim 1451 
+11.100  Montevideo, Uruguay 
+Tel. 2902 15 05 Fax 2908 13 70 
+www.ort.edu.uy - Respetar que el dashboard entero (todo el punto 4) se gestione en una 
+única interfaz. - La atención a los detalles que aporten realismo a la aplicación. 
+Cada docente establecerá un calendario de hitos de avance del obligatorio para 
+poder hacer un seguimiento temprano del cumplimiento de los objetivos 
+planteados. 
+Requerimientos No funcionales 
+● La aplicación será construida utilizando React, Redux para el manejo de estado 
+y React router para la navegación entre secciones. 
+PRODUCTO Y ESTRUCTURA DE LA ENTREGA DEL OBLIGATORIO 
+El producto final deberá ser una aplicación para navegador web. 
+Se deberá entregar: 
+● La versión compilada de la aplicación (build). 
+● El código fuente de la aplicación EXCLUYENDO LA CARPETA 
+NODE_MODULES para no exceder los 40MB de peso y para facilitar la 
+descarga de las entregas (aunque no se excedieran los 40MB). 
+DEFENSA  
+La defensa del obligatorio se realizará los días 13 y 14 de agosto de 2025. La 
+misma será detallada por el docente. Es una instancia OBLIGATORIA. La no 
+presentación implica la pérdida total de los puntos del obligatorio.  
+IMPORTANTE: 
+Los requerimientos de la aplicación pueden sufrir ajustes durante el periodo de 
+desarrollo que serán informados oportunamente por el docente. 
+Facultad de Ingeniería 
+Bernard Wand-Polak 
+Cuareim 1451 
+11.100  Montevideo, Uruguay 
+Tel. 2902 15 05 Fax 2908 13 70 
+www.ort.edu.uy 
+Es responsabilidad de los integrantes del equipo de obligatorio tener en cuenta 
+las aclaraciones o solicitudes sobre el trabajo realizadas por los docentes. Estas 
+aclaraciones o solicitudes se consideran parte integral de la letra. 
+Facultad de Ingeniería 
+Bernard Wand-Polak 
+Cuareim 1451 
+11.100  Montevideo, Uruguay 
+Tel. 2902 15 05 Fax 2908 13 70 
+www.ort.edu.uy 
+RECORDATORIO: IMPORTANTE PARA LA ENTREGA   
+● Obligatorios     
+La entrega de los obligatorios será en formato digital online, a excepción de algunas materias que se entregarán 
+en Bedelía y en ese caso recibirá información específica en el dictado de la misma.   
+Los principales aspectos a destacar sobre la entrega online de obligatorios son:   
+1. Ingresá al sistema de Gestión.    
+2. En el menú, seleccioná el ítem “Evaluaciones” y la instancia de evaluación correspondiente, que figura 
+bajo el título “Inscripto”.    
+3. Para iniciar la entrega hacé clic en el ícono:  
+4. Ingresá el número de estudiante de cada uno de los integrantes y hacé clic en “Agregar”. El sistema 
+confirmará que los integrantes estén inscriptos al obligatorio y, de ser así, mostrará el nombre y la 
+fotografía de cada uno de elos. Una vez agregados todos los integrantes, hacé clic en “Crear equipo”.    
+Cualquier integrante podrá:    
+• Modificar la integración del equipo.    
+• Subir el archivo de la entrega.    
+5. Seleccioná el archivo que deseás entregar. Verificá el nombre del archivo que aparecerá en la panta la 
+y hacé clic en “Subir” para iniciar la entrega. Cada equipo (hasta 2 estudiantes) debe entregar un único 
+archivo en formato zip o rar (los documentos de texto deben ser pdf, y deben ir dentro del zip o rar). El 
+archivo a subir debe tener un tamaño máximo de 40mb   
+Cuando el archivo quede subido, se mostrará el nombre generado por el sistema (1), el tamaño y la 
+fecha en que fue subido.    
+6. El sistema enviará un e-mail a todos los integrantes del equipo informando los deta les del archivo 
+entregado y confirmando que la entrega fue realizada correctamente.    
+7. Podés cerrar la pestaña de entrega y continuar utilizando Gestión o salir del sistema.    
+8. La hora tope para subir el archivo será las 21:00 del día fijado para la entrega.   
+9. La entrega se podrá realizar desde cualquier lugar (ej. hogar del estudiante, laboratorios de la 
+Universidad, etc).  
+10. Aquelos de ustedes que presenten alguna dificultad con su inscripción o tengan inconvenientes 
+técnicos, por favor contactarse con la Coordinadora o Coordinación adjunta antes de las 20:00hs. del 
+día de la entrega, a través de los mails, alamon@ort.edu.uy o rodríguez_mb@ort.edu.uy; o 
+telefónicamente al 29021505 - int 1156 u 1138  
